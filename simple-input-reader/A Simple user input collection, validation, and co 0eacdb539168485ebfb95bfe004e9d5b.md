@@ -68,7 +68,7 @@ Let's go ahead and create the function definition. We'll call it **get_input** a
 ```rust
 use std::io;
 
-**pub fn get_input() {}**
+pub fn get_input() {}
 ```
 
 `src\lib.rs`
@@ -85,14 +85,14 @@ Remember that we want our function to read user input from STDIN. This is where 
 use std::io;
 
 pub fn get_input() {
-    **let mut input = String::new();
+    let mut input = String::new();
 
     // Reads the input from STDIN and places it in the String named input.
 		println!("Enter a value:");
     io::stdin().read_line(&mut input)
         .expect("Failed to read input.");
     
-    print!("'{}'", input);**
+    print!("'{}'", input);
 }
 ```
 
@@ -131,7 +131,7 @@ pub fn get_input() {
     io::stdin().read_line(&mut input)
         .expect("Failed to read input.");
     
-    **let input = input.trim();**
+    let input = input.trim();
     
     print!("'{}'", input);
 }
@@ -161,7 +161,7 @@ pub fn get_input() {
         .expect("Failed to read input.");
     
     // Convert to an i32.
-    **let input: i32 = input.trim().parse().unwrap();**
+    let input: i32 = input.trim().parse().unwrap();
     
     print!("'{}'", input);
 }
@@ -208,7 +208,7 @@ use std::io;
 
 pub fn get_input() {
 
-    **loop {**
+    loop {
         let mut input = String::new();
 
         // Reads the input from STDIN and places it in the String named input.
@@ -219,14 +219,14 @@ pub fn get_input() {
         // Convert to an i32.
         // If successful, bind to a new variable named input.
         // If failed, restart the loop.
-        **let input: i32 = match input.trim().parse::<i32>() {
+          let input: i32 = match input.trim().parse::<i32>() {
             Ok(parsed_input) => parsed_input,
             Err(_) => continue,
-        };**
+        };
         
         print!("'{}'", input * 3);
-        **break;**
-    **}**
+        break;
+    }
 }
 ```
 
@@ -286,7 +286,7 @@ Let's modify **get_input** to take advantage of generics. We'll also modify the 
 ```rust
 use std::io;
 
-pub fn get_input**<U: std::str::FromStr>**() -> **U** {
+pub fn get_input<U: std::str::FromStr>() -> U {
 
     loop {
         let mut input = String::new();
@@ -299,7 +299,7 @@ pub fn get_input**<U: std::str::FromStr>**() -> **U** {
         // Convert to another type.
         // If successful, bind to a new variable named input.
         // If failed, restart the loop.
-        let input = match input.trim().parse::<**U**>() {
+        let input = match input.trim().parse::<U>() {
             Ok(parsed_input) => parsed_input,
             Err(_) => continue,
         };
@@ -342,13 +342,13 @@ Now that we've implemented our small library's core functionality, we're ready t
 ```rust
 use std::io;
 
-pub fn get_input<U: std::str::FromStr>(**prompt: &str**) -> U {
+pub fn get_input<U: std::str::FromStr>(prompt: &str) -> U {
 
     loop {
         let mut input = String::new();
 
         // Reads the input from STDIN and places it in the String named input.
-        **println!("{}", prompt)**;
+        println!("{}", prompt);
         io::stdin().read_line(&mut input)
             .expect("Failed to read input.");
         
@@ -377,7 +377,7 @@ Using functionality provided by the **Write** trait, we can display the input an
 We can achieve that by flushing STDOUT[[1]](https://stackoverflow.com/questions/54262976/how-do-i-print-stdout-and-get-stdin-on-the-same-line-in-rust):
 
 ```rust
-**use std::io::{self, Write};**
+use std::io::{self, Write};
 
 pub fn get_input<U: std::str::FromStr>(prompt: &str) -> U {
 
@@ -385,8 +385,8 @@ pub fn get_input<U: std::str::FromStr>(prompt: &str) -> U {
         let mut input = String::new();
 
         // Reads the input from STDIN and places it in the String named input.
-        **print!**("{}", prompt);
-        **let _ = io::stdout().flush().expect("Failed to flush stdout.");**
+        print!("{}", prompt);
+        let _ = io::stdout().flush().expect("Failed to flush stdout.");
 
         io::stdin().read_line(&mut input)
             .expect("Failed to read input.");
