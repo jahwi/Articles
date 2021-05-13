@@ -1,7 +1,7 @@
 ---
 title: "A Simple user input collection, validation, and conversion library in Rust"
 date: "2021-05-13T15:53:25.509Z"
-slug: "A-Simple-user-input-collection-validation-and-conversion-library-Rust"
+slug: "A-Simple-Rust-user-input-collection-validation-conversion-library"
 image: "https://images.unsplash.com/photo-1589757050226-86d0b6f2e90f?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=334&q=80"
 ---
 
