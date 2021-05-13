@@ -73,7 +73,7 @@ pub fn get_input() {}
 
 `src\lib.rs`
 
-`[pub](https://doc.rust-lang.org/std/keyword.pub.html)` stands for 'public' because we are allowing others to use our **get_input** function. Rust's functions and other objects are usually private by default, which means that we have to explicitly mark them as public before outside code can call into them.
+[pub](https://doc.rust-lang.org/std/keyword.pub.html) stands for 'public' because we are allowing others to use our **get_input** function. Rust's functions and other objects are usually private by default, which means that we have to explicitly mark them as public before outside code can call into them.
 
 For now, our function doesn't take any input parameters, neither does it return any output.
 
